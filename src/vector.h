@@ -1,22 +1,7 @@
-#include <stdio.h>
 #include <assert.h>
 
 template<typename T>
 class vector {
-private:
-    T* data;
-    int size;
-    int capacity;
-
-    void reallocate() {
-        T* new_data = new T[this->capacity << 1];
-        for (int i = 0; i < this->size; ++i)
-            new_data[i] = this->data[i];
-        delete[] this->data;
-        this->data = new_data;
-        this->capacity <<= 1;
-    }
-
 public:
     vector() {
         this->data = new T[4];
@@ -53,29 +38,20 @@ public:
         assert(this->size > 0);
         return this->data[--this->size];
     }
-};
 
-template<typename T>
-void print(vector<T>& arr) {
-    for (int i = 0; i < arr.len(); ++i) {
-        printf("%d ", arr[i]);
+private:
+    T* data;
+    int size;
+    int capacity;
+
+    void reallocate() {
+        assert(this->capacity > 0);
+        T* new_data = new T[this->capacity << 1];
+        for (int i = 0; i < this->size; ++i) {
+            new_data[i] = this->data[i];
+        }
+        delete[] this->data;
+        this->data = new_data;
+        this->capacity <<= 1;
     }
-    printf("\n");
-}
-
-int main() {
-    vector<int> v;
-    v.push_back(1);
-    v.push_back(2);
-    v.push_back(3);
-    v.push_back(4);
-    v.push_back(5);
-    v.push_back(6);
-    v.push_back(7);
-    v.push_back(8);
-    v.push_back(9);
-    print(v);
-    v[4] = 10;
-    print(v);
-    return 0;
-}
+};
