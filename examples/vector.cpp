@@ -19,6 +19,13 @@ int main() {
     v[2] = 10;
     print(v);
 
+    v.get_item(3) = 123;
+    printf("%d\n", v.get_item(3));
+
+    v.back() = 321;
+    printf("%d\n", v.back());
+    v.front() = 234;
+    printf("%d\n", v.front());
 
     vector<double> v2;
     v2.push_back(1.12);
