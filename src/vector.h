@@ -21,15 +21,16 @@ public:
     }
 
     T operator[] (const int idx) const {
-        assert(idx >= 0 && idx < this->capacity && this->data != 0);
+        assert(idx >= 0 && idx < this->size && this->data != 0);
         return this->data[idx];
     }
 
     T& operator[] (const int idx) {
+        assert(idx >= 0 && idx < this->size && this->data != 0);
         return this->data[idx];
     }
 
-    void push_back(T elem) {
+    void push_back(const T& elem) {
         if (this->size >= this->capacity) {
             this->reallocate();
         }
@@ -40,6 +41,21 @@ public:
     T pop_back() {
         assert(this->size > 0);
         return this->data[--this->size];
+    }
+
+    T& get_item(const int idx) const {
+        assert(idx >= 0 && idx < this->size);
+        return this->data[idx];
+    }
+
+    T& back() const {
+        assert(this->size > 0);
+        return this->data[this->size - 1];
+    }
+
+    T& front() const {
+        assert(this->size > 0);
+        return this->data[0];
     }
 
 private:
