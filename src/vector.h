@@ -1,3 +1,6 @@
+#ifndef __VECTOR_H_INCLUDED__
+#define __VECTOR_H_INCLUDED__
+
 #include <assert.h>
 
 template<typename T>
@@ -18,7 +21,7 @@ public:
     }
 
     T operator[] (const int idx) const {
-        assert(idx >= 0 && idx < this->capacity && this->data != NULL);
+        assert(idx >= 0 && idx < this->capacity && this->data != 0);
         return this->data[idx];
     }
 
@@ -30,7 +33,7 @@ public:
         if (this->size >= this->capacity) {
             this->reallocate();
         }
-        assert(this->size < this->capacity && this->data != NULL);
+        assert(this->size < this->capacity && this->data != 0);
         this->data[this->size++] = elem;
     }
 
@@ -55,3 +58,5 @@ private:
         this->capacity <<= 1;
     }
 };
+
+#endif
