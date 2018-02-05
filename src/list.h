@@ -89,7 +89,7 @@ public:
         return data;
     }
 
-    bool empty() const {
+    bool is_empty() const {
         return this->head == 0;
     }
 

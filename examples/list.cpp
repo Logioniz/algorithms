@@ -10,12 +10,12 @@ int main() {
     v.push_front(2);
     printf("%d\n", v.front());
 
-    printf("%d\n", v.empty());
+    printf("%d\n", v.is_empty());
 
     printf("%d\n", v.pop_back());
     printf("%d\n", v.pop_front());
 
-    printf("%d\n", v.empty());
+    printf("%d\n", v.is_empty());
 
     // test on memory leak
     {
