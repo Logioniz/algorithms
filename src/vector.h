@@ -65,6 +65,10 @@ public:
         return this->data[0];
     }
 
+    bool is_empty() const {
+        return size == 0;
+    }
+
 private:
     T* data;
     int size;

@@ -93,12 +93,12 @@ public:
         return this->head == 0;
     }
 
-    T& back() {
+    T& back() const {
         assert(this->tail != 0);
         return this->tail->data;
     }
 
-    T& front() {
+    T& front() const {
         assert(this->head != 0);
         return this->head->data;
     }

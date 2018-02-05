@@ -2,7 +2,6 @@
 #define __CHUNKED_VECTOR_H_INCLUDED__
 
 #include <assert.h>
-#include <stdio.h>
 
 template<typename T>
 class chunk_node {
@@ -185,17 +184,17 @@ public:
         return val;
     }
 
-    T& back() {
+    T& back() const {
         assert(this->tail != 0 && !this->tail->is_empty());
         return this->tail->back();
     }
 
-    T& front() {
+    T& front() const {
         assert(this->head != 0 && !this->head->is_empty());
         return this->head->front();
     }
 
-    bool is_empty() {
+    bool is_empty() const {
         if (this->head == 0) {
             return true;
         }
