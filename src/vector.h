@@ -12,6 +12,13 @@ public:
         this->capacity = 4;
     }
 
+    vector(int _capacity) {
+        assert(capacity > 0);
+        this->data = new T[_capacity];
+        this->size = 0;
+        this->capacity = _capacity;
+    }
+
     ~vector() {
         delete[] this->data;
     }
